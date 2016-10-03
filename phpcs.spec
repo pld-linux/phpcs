@@ -8,14 +8,13 @@
 %include	/usr/lib/rpm/macros.php
 Summary:	PHP_CodeSniffer tokenises PHP code and detects violations of a defined set of coding standards
 Summary(pl.UTF-8):	PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
-Name:		php-pear-%{pearname}
+Name:		phpcs
 Version:	2.3.4
-Release:	1
-Epoch:		1
+Release:	0.1
 License:	BSD License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{pearname}-%{version}.tgz
-# Source0-md5:	024479013541e5423cda862c1901b74e
+# Source0-md5:	7484f6b440a3037aa267141fada2edbc
 Patch0:		case-sensitive.patch
 Patch1:		peardeps.patch
 URL:		http://pear.php.net/package/PHP_CodeSniffer/
@@ -28,6 +27,8 @@ Requires:	php(tokenizer)
 Requires:	php-pear
 Suggests:	php(xmlwriter)
 Suggests:	php-phpunit-PHP_Timer
+Provides:	php-pear-PHP_CodeSniffer = 1:%{version}-%{release}
+Obsoletes:	php-pear-PHP_CodeSniffer
 Obsoletes:	php-pear-PHP_CodeSniffer-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
