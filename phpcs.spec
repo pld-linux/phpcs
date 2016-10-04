@@ -9,7 +9,7 @@ Summary:	PHP_CodeSniffer tokenises PHP code and detects violations of a defined 
 Summary(pl.UTF-8):	PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
 Name:		phpcs
 Version:	2.7.0
-Release:	1
+Release:	2
 License:	BSD License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{pearname}-%{version}.tgz
@@ -22,22 +22,20 @@ BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.580
 Requires:	php(core) >= %{php_min_version}
 Requires:	php(ctype)
+Requires:	php(date)
+Requires:	php(dom)
+Requires:	php(iconv)
+Requires:	php(pcre)
+Requires:	php(simplexml)
+Requires:	php(spl)
 Requires:	php(tokenizer)
+Requires:	php(xmlwriter)
 Requires:	php-pear
-Suggests:	php(simplexml)
-Suggests:	php(xmlwriter)
-Suggests:	php-phpunit-PHP_Timer
 Provides:	php-pear-PHP_CodeSniffer = 1:%{version}-%{release}
 Obsoletes:	php-pear-PHP_CodeSniffer
 Obsoletes:	php-pear-PHP_CodeSniffer-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-# exclude optional php dependencies
-%define		_noautophp	php-xmlwriter
-
-# put it together for rpmbuild
-%define		_noautoreq	%{?_noautophp}
 
 %description
 PHP_CodeSniffer is a set of two PHP scripts; the main phpcs script
