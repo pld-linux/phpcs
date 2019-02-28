@@ -3,19 +3,17 @@
 # $ phpcs --config-set default_standard PEAR
 # PHP Warning:  file_put_contents(/usr/share/pear/data/PHP_CodeSniffer/CodeSniffer.conf): failed to open stream: Permission denied in /usr/share/pear/PHP/CodeSniffer.php on line 1532
 %define		pearname	PHP_CodeSniffer
-%define		php_min_version 5.2.1
+%define		php_min_version 5.4.0
 %include	/usr/lib/rpm/macros.php
 Summary:	PHP_CodeSniffer tokenises PHP code and detects violations of a defined set of coding standards
 Summary(pl.UTF-8):	PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
 Name:		phpcs
-Version:	2.9.1
+Version:	3.4.0
 Release:	1
 License:	BSD License
 Group:		Development/Languages/PHP
 Source0:	https://pear.php.net/get/%{pearname}-%{version}.tgz
-# Source0-md5:	50855c5c3bbe01b0180438f50f617064
-Patch0:		case-sensitive.patch
-Patch1:		peardeps.patch
+# Source0-md5:	daedf0015977e8d398f381bb2e05ae6b
 URL:		https://github.com/squizlabs/PHP_CodeSniffer
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -53,10 +51,6 @@ przez programistów pewnych częstych błędów semantycznych.
 
 %prep
 %pear_package_setup
-%patch0 -p1
-%patch1 -p1
-
-mv .%{_bindir}/scripts .
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -70,10 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc install.log scripts
+%doc install.log
 %{php_pear_dir}/.registry/*.reg
 %attr(755,root,root) %{_bindir}/phpcs
 %attr(755,root,root) %{_bindir}/phpcbf
 %{php_pear_dir}/PHP/CodeSniffer
-%{php_pear_dir}/PHP/CodeSniffer.php
 %{php_pear_dir}/data/PHP_CodeSniffer
