@@ -8,12 +8,12 @@
 Summary:	PHP_CodeSniffer tokenises PHP code and detects violations of a defined set of coding standards
 Summary(pl.UTF-8):	PHP_CodeSniffer analizuje kod PHP pod kątem naruszeń zdefiniowanych standardów kodowania
 Name:		phpcs
-Version:	3.4.0
-Release:	2
+Version:	3.4.1
+Release:	1
 License:	BSD License
 Group:		Development/Languages/PHP
 Source0:	https://pear.php.net/get/%{pearname}-%{version}.tgz
-# Source0-md5:	daedf0015977e8d398f381bb2e05ae6b
+# Source0-md5:	70c7edd0eb218df10e18d58a669aada7
 Patch0:		case-sensitive.patch
 URL:		https://github.com/squizlabs/PHP_CodeSniffer
 BuildRequires:	php-pear-PEAR
